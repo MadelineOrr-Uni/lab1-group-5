@@ -22,6 +22,10 @@
     <string name="percentText">%</string>
     <string name="signText">+/-</string>
 
+    <string name="modeRadText">Rad</string>
+    <string name="modeDecText">Dec</string>
+    <string name="modeSwapText">sync_alt</string>
+
     <string name="trigSinText">sin</string>
     <string name="trigCosText">cos</string>
     <string name="trigTanText">tan</string>
@@ -31,9 +35,11 @@
     <string name="naturalLogText">ln</string>
     <string name="LogText">log</string>
     <string name="squareRootText">√</string>
+    <string name="fractionText">1/x</string>
     <string name="absoluteValueText">|x|</string>
     <string name="piText">π</string>
     <string name="eText">e</string>
+    <string name="ePowerXText">e<sup><small>x</small></sup></string>
     <string name="xSquaredText">x<sup><small>2</small></sup></string>
     <string name="xPowerYText">x<sup><small>y</small></sup></string>
     <string name="isPrimeFunctionText">prime</string>
