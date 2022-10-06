@@ -269,7 +269,7 @@
                 android:layout_margin="8dp"
                 android:text="@string/signText"
                 android:textColor="@color/white"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 app:cornerRadius="36dp" />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_0"
