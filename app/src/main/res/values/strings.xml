@@ -26,23 +26,39 @@
     <string name="modeDecText">Dec</string>
     <string name="modeSwapText">sync_alt</string>
 
-    <string name="trigSinText">sin</string>
-    <string name="trigCosText">cos</string>
-    <string name="trigTanText">tan</string>
-    <string name="trigArcSinText">sin<sup><small>-1</small></sup></string>
-    <string name="trigArcCosText">cos<sup><small>-1</small></sup></string>
-    <string name="trigArcTanText">tan<sup><small>-1</small></sup></string>
+    <string name="SinText">sin</string>
+    <string name="CosText">cos</string>
+    <string name="TanText">tan</string>
+    <string name="ArcSinText">sin<sup><small>-1</small></sup></string>
+    <string name="ArcCosText">cos<sup><small>-1</small></sup></string>
+    <string name="ArcTanText">tan<sup><small>-1</small></sup></string>
+    <string name="HyperSinText">sinh</string>
+    <string name="HyperCosText">cosh</string>
+    <string name="HyperTanText">tanh</string>
+    <string name="HyperArcSinText">sinh<sup><small>-1</small></sup></string>
+    <string name="HyperArcCosText">cosh<sup><small>-1</small></sup></string>
+    <string name="HyperArcTanText">tanh<sup><small>-1</small></sup></string>
+
     <string name="naturalLogText">ln</string>
     <string name="LogText">log</string>
     <string name="squareRootText">√</string>
+    <string name="cubeRootText"><sup><small>3</small></sup>√</string>
     <string name="fractionText">1/x</string>
     <string name="absoluteValueText">|x|</string>
     <string name="piText">π</string>
     <string name="eText">e</string>
     <string name="ePowerXText">e<sup><small>x</small></sup></string>
     <string name="xSquaredText">x<sup><small>2</small></sup></string>
+    <string name="xCubedText">x<sup><small>3</small></sup></string>
     <string name="xPowerYText">x<sup><small>y</small></sup></string>
-    <string name="isPrimeFunctionText">prime</string>
+    <string name="twoPowerXText">2<sup><small>x</small></sup></string>
+    <string name="xFactorialText">x!</string>
 
-    <string name="backspace"> </string>
+
+    <string name="backspaceButtonText">Backspace Button</string>
+    <string name="modeSwapButtonText">Mode Swap Button</string>
+
+    <string name="currentNumberText">0</string>
+    <string name="currentCalculationText">0</string>
+    <string name="previousCalculationText">0</string>
 </resources>
