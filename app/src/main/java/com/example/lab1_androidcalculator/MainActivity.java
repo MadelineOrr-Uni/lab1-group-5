@@ -130,29 +130,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnBackspace.setOnClickListener(this);
     }
 
+    private void addNumber(String number) {
+        currNum.setText(currNum.getText()+number);
+    }
+
     @Override
     public void onClick(View view) {
         System.out.println("Click");
         switch (view.getId()) {
             case R.id.button_0:
+                addNumber("0");
                 break;
             case R.id.button_1:
+                addNumber("1");
                 break;
             case R.id.button_2:
+                addNumber("2");
                 break;
             case R.id.button_3:
+                addNumber("3");
                 break;
             case R.id.button_4:
+                addNumber("4");
                 break;
             case R.id.button_5:
+                addNumber("5");
                 break;
             case R.id.button_6:
+                addNumber("6");
                 break;
             case R.id.button_7:
+                addNumber("7");
                 break;
             case R.id.button_8:
+                addNumber("8");
                 break;
             case R.id.button_9:
+                addNumber("9");
                 break;
             case R.id.button_add:
                 break;
@@ -294,5 +308,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_backspace:
                 break;
         }
+
     }
 }
