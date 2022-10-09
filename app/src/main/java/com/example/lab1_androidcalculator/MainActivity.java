@@ -131,7 +131,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addNumber(String number) {
-        currNum.setText(currNum.getText()+number);
+        if (currNum.getText().equals("Error")){
+            currNum.setText(number);
+        } else {
+            currNum.setText(currNum.getText()+number);
+        }
     }
 
     @Override
@@ -169,22 +173,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber("9");
                 break;
             case R.id.button_add:
+                addNumber("+");
                 break;
             case R.id.button_minus:
+                addNumber("-");
                 break;
             case R.id.button_multiply:
+                addNumber("*")
                 break;
             case R.id.button_divide:
+                addNumber("/")
                 break;
             case R.id.button_equals:
+                String result = null;
+                try {
+                    result = evaluate(currNum.getText().toString());
+                    currNum.setText(result);
+                } catch (ScriptException e) {
+                    currNum.setText("Error");
+                }
                 break;
             case R.id.button_clear:
+                clear_display();
                 break;
             case R.id.button_pi:
                 break;
             case R.id.button_bracket:
                 break;
             case R.id.button_decimal:
+                addNumber(".");
                 break;
             case R.id.button_percent:
                 break;
@@ -309,5 +326,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
+    }
+    private void clear_display() {
+        currNum.setText("");
+    }
+    
+    private String evaluate(String expression) throws ScriptException {
+        String result = engine.eval(expression).toString();
+        BigDecimal decimal = new BigDecimal(result);
+        BigDecimal one = new BigDecimal("1.00");
+        if(decimal.remainder(one).equals(one.subtract(one))){
+            return decimal.setScale(0).toPlainString();
+        } else {
+            return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
+        }
     }
 }
