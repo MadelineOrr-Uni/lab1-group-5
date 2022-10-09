@@ -179,10 +179,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber("-");
                 break;
             case R.id.button_multiply:
-                addNumber("*")
+                addNumber("*");
                 break;
             case R.id.button_divide:
-                addNumber("/")
+                addNumber("/");
                 break;
             case R.id.button_equals:
                 String result = null;
@@ -204,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber(".");
                 break;
             case R.id.button_percent:
+                addNumber("%");
                 break;
             case R.id.button_sign:
                 break;
@@ -330,7 +331,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void clear_display() {
         currNum.setText("");
     }
-    
+
     private String evaluate(String expression) throws ScriptException {
         String result = engine.eval(expression).toString();
         BigDecimal decimal = new BigDecimal(result);
