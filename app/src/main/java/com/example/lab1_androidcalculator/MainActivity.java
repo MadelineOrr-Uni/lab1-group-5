@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber("/");
                 break;
             case R.id.button_equals:
-                String result = null;
+                String result;
                 try {
                     result = evaluate(currNum.getText().toString());
                     currNum.setText(result);
@@ -213,8 +213,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber(".");
                 break;
             case R.id.button_percent:
-                result=evaluate(addNumber()/100);
-                currNum.setText(result);
+                addNumber("/100");
+                try {
+                    result = evaluate(currNum.getText().toString());
+                    currNum.setText(result);
+                } catch (ScriptException e) {
+                    currNum.setText("Error");
+                }
                 break;
             case R.id.button_sign:
                 break;
