@@ -7,6 +7,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     // Portrait Buttons
     Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnAdd, btnSubtract, btnMultiply, btnDivide, btnEqual, btnClear, btnBracket, btnDecimal, btnPercent, btnSign;
@@ -17,10 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Text Fields
     TextView currNum, currCalc, prevCalc;
 
+    ScriptEngine mathcalc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mathcalc=new ScriptEngineManager().getEngineByName("rhino");
 
         currNum = findViewById(R.id.current_number);
         currCalc = findViewById(R.id.current_number);
@@ -204,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber(".");
                 break;
             case R.id.button_percent:
-                addNumber("%");
+                currNum/100;
                 break;
             case R.id.button_sign:
                 break;
@@ -333,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String evaluate(String expression) throws ScriptException {
-        String result = engine.eval(expression).toString();
+        String result = mathcalc.eval(expression).toString();
         BigDecimal decimal = new BigDecimal(result);
         BigDecimal one = new BigDecimal("1.00");
         if(decimal.remainder(one).equals(one.subtract(one))){
