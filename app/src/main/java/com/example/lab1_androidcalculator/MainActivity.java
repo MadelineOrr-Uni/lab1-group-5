@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber(".");
                 break;
             case R.id.button_percent:
-                result=(currNum.gettext())/100;
+                result=(currNum.getText().toString())/100;
                 currNum.setText(result);
                 break;
             case R.id.button_sign:
