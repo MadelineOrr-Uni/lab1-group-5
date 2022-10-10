@@ -206,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 clear_display();
                 break;
             case R.id.button_pi:
+                addNumber("3.14159");
                 break;
             case R.id.button_bracket:
                 break;
@@ -260,6 +261,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_invert:
                 break;
             case R.id.button_eExponent:
+                addNumber("2.71828");
                 break;
             case R.id.button_XPowerY:
                 break;
