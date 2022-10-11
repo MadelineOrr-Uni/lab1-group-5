@@ -24,16 +24,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ScriptEngine mathCalc;
 
+    // Temp strings
+    String str, prevCalcValue;
+
+    boolean showPrevCalc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mathCalc=new ScriptEngineManager().getEngineByName("rhino");
+        showPrevCalc = false;
 
         currNum = findViewById(R.id.current_number);
-        currCalc = findViewById(R.id.current_number);
-        prevCalc = findViewById(R.id.current_number);
+        currCalc = findViewById(R.id.current_calculation);
+        prevCalc = findViewById(R.id.previous_calculation);
 
         btn0 = findViewById(R.id.button_0);
         btn0.setOnClickListener(this);
@@ -139,92 +144,126 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnBackspace.setOnClickListener(this);
     }
 
-    private void addNumber(String number) {
+    private void addText(String text) {
         String str = currNum.getText().toString();
         if (str.equals("0") || str.equals("Error")) {
-            currNum.setText(number);
+            if (text.equals(".0")) {
+                str += text;
+                currNum.setText(str);
+                return;
+            }
+            currNum.setText(text);
             return;
         }
-        str+=number;
+        str+=text;
         currNum.setText(str);
     }
 
     @Override
     public void onClick(View view) {
+        boolean doEval = true;
         System.out.println("Click");
         switch (view.getId()) {
             case R.id.button_0:
-                addNumber("0");
+                addText("0");
                 break;
             case R.id.button_1:
-                addNumber("1");
+                addText("1");
                 break;
             case R.id.button_2:
-                addNumber("2");
+                addText("2");
                 break;
             case R.id.button_3:
-                addNumber("3");
+                addText("3");
                 break;
             case R.id.button_4:
-                addNumber("4");
+                addText("4");
                 break;
             case R.id.button_5:
-                addNumber("5");
+                addText("5");
                 break;
             case R.id.button_6:
-                addNumber("6");
+                addText("6");
                 break;
             case R.id.button_7:
-                addNumber("7");
+                addText("7");
                 break;
             case R.id.button_8:
-                addNumber("8");
+                addText("8");
                 break;
             case R.id.button_9:
-                addNumber("9");
+                addText("9");
                 break;
             case R.id.button_add:
-                addNumber("+");
+                addText("+");
                 break;
             case R.id.button_minus:
-                addNumber("-");
+                addText("-");
                 break;
             case R.id.button_multiply:
-                addNumber("*");
+                addText("*");
                 break;
             case R.id.button_divide:
-                addNumber("/");
+                addText("÷");
                 break;
             case R.id.button_equals:
                 String result;
                 try {
-                    result = evaluate(currNum.getText().toString());
+                    result = evaluate(currNum.getText().toString().replaceAll("÷", "/"));
                     currNum.setText(result);
+                    if (showPrevCalc) {
+                        prevCalc.setText(prevCalcValue);
+                        prevCalc.setVisibility(View.VISIBLE);
+                    }
+                    showPrevCalc = true;
+                    prevCalcValue = result;
                 } catch (ScriptException e) {
                     currNum.setText("Error");
                 }
+                currCalc.setVisibility(View.INVISIBLE);
+
+                doEval = false;
                 break;
             case R.id.button_clear:
-                clear_display();
+                currNum.setText("0");
+                currCalc.setVisibility(View.INVISIBLE);
+                doEval = false;
                 break;
             case R.id.button_pi:
-                addNumber("3.14159");
+                addText("3.14159");
                 break;
             case R.id.button_bracket:
+                str = currNum.getText().toString();
+                int ascii = str.charAt(str.length()-1);
+                if (ascii < 48 || ascii > 57)
+                    break;
+                str = "("+str+")";
+                currNum.setText(str);
                 break;
             case R.id.button_decimal:
-                addNumber(".");
+                addText(".0");
                 break;
             case R.id.button_percent:
-                addNumber("/100");
+                addText("÷100");
                 try {
-                    result = evaluate(currNum.getText().toString());
+                    result = evaluate(currNum.getText().toString().replaceAll("÷", "/"));
                     currNum.setText(result);
                 } catch (ScriptException e) {
                     currNum.setText("Error");
                 }
+                currCalc.setVisibility(View.INVISIBLE);
+                doEval = false;
                 break;
             case R.id.button_sign:
+                str = currNum.getText().toString();
+                if (str.equals("0"))
+                    break;
+                if (str.charAt(0) == '-') {
+                    str = str.substring(1, str.length());
+                } else {
+                    str = "-"+str;
+                }
+                currNum.setText(str);
                 break;
             case R.id.button_mode:
                 break;
@@ -263,7 +302,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_invert:
                 break;
             case R.id.button_eExponent:
-                addNumber("2.71828");
+                addText("2.71828");
                 break;
             case R.id.button_XPowerY:
                 break;
@@ -343,27 +382,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 btnFactorial.setVisibility(View.GONE);
                 break;
             case R.id.button_backspace:
-                String str = currNum.getText().toString();
+                str = currNum.getText().toString();
                 if(str.length() == 0)
                     break;
                 str = str.substring(0, str.length() - 1);
                 currNum.setText(str);
                 break;
         }
-
+        if (!currNum.getText().toString().equals("0") && doEval == true)
+            autoEval();
     }
-    private void clear_display() {
-        currNum.setText("");
-    }
-    private String evaluate(String expression) throws ScriptException {
-        String result = mathCalc.eval(expression).toString();
-        BigDecimal decimal = new BigDecimal(result);
-        BigDecimal one = new BigDecimal("1.00");
-        if(decimal.remainder(one).equals(one.subtract(one))){
-            return decimal.setScale(0).toPlainString();
-        } else {
-            return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
+    public void autoEval() {
+        try {
+            String autoResult = evaluate(currNum.getText().toString().replaceAll("÷", "/"));
+            currCalc.setText(autoResult);
+            currCalc.setVisibility(View.VISIBLE);
+        } catch (Exception e) {
+            currCalc.setVisibility(View.INVISIBLE);
         }
     }
+
+    public String evaluate(String expression) throws ScriptException {
+        mathCalc=new ScriptEngineManager().getEngineByName("rhino");
+        String result = mathCalc.eval(expression).toString();
+
+        BigDecimal decimal = new BigDecimal(result);
+        BigDecimal one = new BigDecimal("1.0");
+
+        if(decimal.remainder(one).equals(one.subtract(one)))
+            return decimal.setScale(0).toPlainString();
+        return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
+    }
+
+
 
 }

@@ -13,7 +13,10 @@
         android:layout_above="@id/current_number"
         android:layout_marginHorizontal="16dp"
         android:text="@string/previousCalculationText"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:visibility="invisible"
+        android:alpha="0.5"
+        />
 
     <TextView
         android:id="@+id/current_number"
@@ -34,7 +37,9 @@
         android:layout_marginHorizontal="16dp"
         android:text="@string/currentCalculationText"
         android:textAlignment="textEnd"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:visibility="invisible"
+        />
 
 
 
