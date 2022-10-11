@@ -225,6 +225,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_sign:
                 break;
             case R.id.button_mode:
+                System.out.println(Math.toDegrees());
+                System.out.println(Math.toRadians());
                 break;
             case R.id.button_squareRoot:
                 break;
@@ -341,6 +343,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 btnFactorial.setVisibility(View.GONE);
                 break;
             case R.id.button_backspace:
+                String str = btnBackspace.getText().toString();
+                if(str.length() == 0)
+                    return;
+                str = str.substring(0, str.length() - 1);
+                btnBackpsace.backspaceButtonText(str)
                 break;
         }
 
