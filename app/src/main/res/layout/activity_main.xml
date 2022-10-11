@@ -75,7 +75,7 @@
             android:background="@drawable/backspace_button_styling"
             android:contentDescription="@string/backspaceButtonText"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_baseline_backspace_24"></ImageButton>
+            android:src="@drawable/ic_baseline_backspace_24"/>
         <Space
             android:layout_width="match_parent"
             android:layout_height="1dp"

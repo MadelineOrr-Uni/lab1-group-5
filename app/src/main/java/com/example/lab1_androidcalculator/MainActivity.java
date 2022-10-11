@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Text Fields
     TextView currNum, currCalc, prevCalc;
 
-    ScriptEngine mathcalc;
+    ScriptEngine mathCalc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mathcalc=new ScriptEngineManager().getEngineByName("rhino");
+        mathCalc=new ScriptEngineManager().getEngineByName("rhino");
 
         currNum = findViewById(R.id.current_number);
         currCalc = findViewById(R.id.current_number);
@@ -140,11 +140,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addNumber(String number) {
-        if (currNum.getText().equals("Error")){
+        String str = currNum.getText().toString();
+        if (str.equals("0") || str.equals("Error")) {
             currNum.setText(number);
-        } else {
-            currNum.setText(currNum.getText()+number);
+            return;
         }
+        str+=number;
+        currNum.setText(str);
     }
 
     @Override
@@ -225,8 +227,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_sign:
                 break;
             case R.id.button_mode:
-                System.out.println(Math.toDegrees());
-                System.out.println(Math.toRadians());
                 break;
             case R.id.button_squareRoot:
                 break;
@@ -343,11 +343,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 btnFactorial.setVisibility(View.GONE);
                 break;
             case R.id.button_backspace:
-                String str = btnBackspace.getText().toString();
+                String str = currNum.getText().toString();
                 if(str.length() == 0)
-                    return;
+                    break;
                 str = str.substring(0, str.length() - 1);
-                btnBackpsace.backspaceButtonText(str)
+                currNum.setText(str);
                 break;
         }
 
@@ -355,9 +355,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void clear_display() {
         currNum.setText("");
     }
-
     private String evaluate(String expression) throws ScriptException {
-        String result = mathcalc.eval(expression).toString();
+        String result = mathCalc.eval(expression).toString();
         BigDecimal decimal = new BigDecimal(result);
         BigDecimal one = new BigDecimal("1.00");
         if(decimal.remainder(one).equals(one.subtract(one))){
@@ -366,4 +365,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
         }
     }
+
 }
