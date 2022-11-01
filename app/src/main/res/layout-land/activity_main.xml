@@ -55,60 +55,15 @@
             app:layout_constraintTop_toBottomOf="@+id/current_number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/button_grid"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/numbers"
+        android:layout_marginTop="-97dp">
 
-        android:layout_below="@id/numbers"
-
-        android:background="@drawable/buttons_top_border"
-        android:orientation="vertical">
-
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:orientation="horizontal">
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
-            <ImageButton
-                android:id="@+id/button_backspace"
-                android:layout_width="72dp"
-                android:layout_height="40dp"
-                android:background="@drawable/backspace_button_styling"
-                android:contentDescription="@string/backspaceButtonText"
-                android:src="@drawable/ic_baseline_backspace_24"
-            />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_weight="7"/>
-        </LinearLayout>
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/button_swap"
@@ -120,11 +75,6 @@
                 android:src="@drawable/ic_baseline_sync_alt_24"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_mode"
@@ -138,11 +88,6 @@
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_squareRoot"
@@ -170,11 +115,6 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_clear"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -187,11 +127,6 @@
                 android:textSize="24sp"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_bracket"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -201,13 +136,7 @@
                 android:text="@string/parenthesesText"
                 android:textColor="@color/white"
                 android:textSize="24sp"
-                app:cornerRadius="36dp"
-                />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+                app:cornerRadius="36dp" />
 
             <Button
                 android:id="@+id/button_percent"
@@ -220,11 +149,6 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_divide"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -236,31 +160,11 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
+        </TableRow>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:orientation="horizontal"
-
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/button_sin"
@@ -289,11 +193,6 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_cos"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -320,11 +219,6 @@
                 android:textSize="10sp"
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_tan"
@@ -353,11 +247,6 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_7"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -368,11 +257,6 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_8"
@@ -385,11 +269,6 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_9"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -400,11 +279,6 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_multiply"
@@ -417,31 +291,11 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
+        </TableRow>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:orientation="horizontal"
-
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/button_naturalLog"
@@ -470,11 +324,6 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_log"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -501,11 +350,6 @@
                 android:textSize="12sp"
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_invert"
@@ -534,11 +378,6 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_4"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -549,11 +388,6 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_5"
@@ -566,11 +400,6 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_6"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -581,11 +410,6 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_minus"
@@ -599,39 +423,20 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+        </TableRow>
 
-        </LinearLayout>
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:orientation="horizontal"
-
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+            android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button_eExponent"
+                android:id="@+id/button_squared"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/material_dynamic_primary20"
                 android:padding="0dp"
-                android:text="@string/ePowerXText"
+                android:text="@string/xSquaredText"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="24sp"
@@ -643,29 +448,23 @@
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/material_dynamic_primary20"
+                android:includeFontPadding="true"
                 android:padding="0dp"
                 android:text="@string/HyperArcSinText"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="10sp"
                 android:visibility="gone"
-                app:cornerRadius="36dp"
-                android:includeFontPadding="true"
-                />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+                app:cornerRadius="36dp" />
 
             <Button
-                android:id="@+id/button_squared"
+                android:id="@+id/button_XPowerY"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/material_dynamic_primary20"
                 android:padding="0dp"
-                android:text="@string/xSquaredText"
+                android:text="@string/xPowerYText"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="24sp"
@@ -685,19 +484,14 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
-                android:id="@+id/button_XPowerY"
+                android:id="@+id/button_eExponent"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/material_dynamic_primary20"
                 android:padding="0dp"
-                android:text="@string/xPowerYText"
+                android:text="@string/ePowerXText"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="24sp"
@@ -715,13 +509,7 @@
                 android:textColor="@color/white"
                 android:textSize="9sp"
                 android:visibility="gone"
-                app:cornerRadius="36dp"
-                />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+                app:cornerRadius="36dp" />
 
             <Button
                 android:id="@+id/button_1"
@@ -734,11 +522,6 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_2"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -749,12 +532,6 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                tools:ignore="TooManyViews"/>
 
             <Button
                 android:id="@+id/button_3"
@@ -767,11 +544,6 @@
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_add"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -783,31 +555,11 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
+        </TableRow>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:orientation="horizontal"
-
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/button_absoluteValue"
@@ -836,20 +588,15 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
-                android:id="@+id/button_pi"
+                android:id="@+id/button_e"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/material_dynamic_primary20"
                 android:includeFontPadding="false"
                 android:padding="0dp"
-                android:text="@string/piText"
+                android:text="@string/eText"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="24sp"
@@ -869,20 +616,15 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
-                android:id="@+id/button_e"
+                android:id="@+id/button_pi"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/material_dynamic_primary20"
                 android:includeFontPadding="false"
                 android:padding="0dp"
-                android:text="@string/eText"
+                android:text="@string/piText"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="24sp"
@@ -902,11 +644,6 @@
                 android:visibility="gone"
                 app:cornerRadius="36dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_sign"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -917,11 +654,6 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_0"
@@ -935,11 +667,6 @@
                 app:cornerRadius="36dp"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <Button
                 android:id="@+id/button_decimal"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -950,11 +677,6 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/button_equals"
@@ -967,16 +689,8 @@
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="36dp" />
+        </TableRow>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
+    </TableLayout>
 
-        </LinearLayout>
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-    </LinearLayout>
 </RelativeLayout>

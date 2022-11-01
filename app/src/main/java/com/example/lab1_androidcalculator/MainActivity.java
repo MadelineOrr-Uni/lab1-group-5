@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (str.equals("0"))
                     break;
                 if (str.charAt(0) == '-') {
-                    str = str.substring(1, str.length());
+                    str = str.substring(1);
                 } else {
                     str = "-"+str;
                 }
@@ -302,7 +302,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_invert:
                 break;
             case R.id.button_eExponent:
-                addText("2.71828");
+                str = currNum.getText().toString();
+                currNum.setText("e");
+                break;
+            case R.id.button_e:
+                addText("e");
                 break;
             case R.id.button_XPowerY:
                 break;
@@ -389,7 +393,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 currNum.setText(str);
                 break;
         }
-        if (!currNum.getText().toString().equals("0") && doEval == true)
+        if (!currNum.getText().toString().equals("0") && doEval)
             autoEval();
     }
     public void autoEval() {
